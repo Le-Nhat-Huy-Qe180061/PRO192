@@ -12,6 +12,7 @@ public class hocoop
             m[i]=sc.nextLine();
         }
     }
+
     public static void menu()
     {
         System.out.println("-----------Menu-----------");
@@ -32,12 +33,51 @@ public class hocoop
             {
                 case 1:
                 {
-                    System.out.print("Nhập a và b: ");
-                    int a = sc.nextInt(), b = sc.nextInt();
-                    System.out.println(a + b);
-                    System.out.println(a - b);
-                    System.out.println(a * b);
-                    System.out.println((double) a / b);
+                    int a=0,b=0;
+                    char option='+';
+                    boolean check=false;
+                    do {
+                        try
+                        {
+                            System.out.print("Nhập a và b: ");
+                            String a1, b1;
+                            a1 = sc.next();
+                            b1 = sc.next();
+                             a = Integer.parseInt(a1);
+                             b = Integer.parseInt(b1);
+                            System.out.print("Nhập phép tính bạn cần tính: ");
+                            option = sc.next().charAt(0);
+                            check = true;
+                        } catch (NumberFormatException e)
+                        {
+                            System.out.println("Nhập lại a và b là kiểu số");
+                        }
+                    }while (check == false);
+                    switch(option)
+                    {
+                        case '+':
+                        {
+                            System.out.println(a + b);
+                            break;
+                        }
+                        case '-':
+                        {
+                            System.out.println(a - b);
+                            break;
+                        }
+                        case '*':
+                        {
+                            System.out.println(a * b);
+                        }
+                        case '/':
+                        {
+                            do{
+                                System.out.println("Nhập lại b > 0");
+                                b= sc.nextInt();
+                            }while(b<0);
+                            System.out.println((double) a / b);
+                        }
+                    }
                     break;
                 }
                 case 2:
@@ -49,12 +89,26 @@ public class hocoop
                 }
                 case 3:
                 {
-                    System.out.print("Điểm chuyên cần: ");
-                    double a = sc.nextDouble();
-                    System.out.print("Điểm giữa kỳ: ");
-                    double b = sc.nextDouble();
-                    System.out.print("Điểm cuối kỳ: ");
-                    double c = sc.nextDouble();
+                    double a=0,b=0,c=0;
+                    boolean check = false;
+                    do {
+                        try
+                        {
+                            System.out.println("Nhập điểm chuyên cần >=0 || điểm giữa kỳ>=0 || cuối kỳ >=0");
+                            String a1,b1,c1;
+                            a1=sc.next();
+                            b1=sc.next();
+                            c1=sc.next();
+                            a=Double.parseDouble(a1);
+                            b=Double.parseDouble(b1);
+                            c=Double.parseDouble(c1);
+                            check=true;
+                        }
+                        catch (NumberFormatException e)
+                        {
+                            System.out.println("Vui lòng nhập kiểu số !");
+                        }
+                    }while (check == false);
                     System.out.print("Điểm học phần: " + (a * 0.1 + b * 0.2 + c * 0.7));
                     System.out.println(" ");
                     break;
