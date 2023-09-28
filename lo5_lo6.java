@@ -8,7 +8,7 @@ public class lo5_lo6 {
         Person x = new Person(sc.nextLine(),sc.nextLine(),sc.nextLine(),sc.nextLine(),sc.nextLine(),sc.nextInt());
         x.Display();
         x.changediachi(sc.nextLine());
-        x.changediachi(sc.nextLine());
+        x.changesdt(sc.nextLine());
         x.Display();
     }
 
